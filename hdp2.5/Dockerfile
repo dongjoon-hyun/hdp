@@ -24,7 +24,7 @@ RUN \
   gpg --keyserver pgp.mit.edu --recv-keys B9733A7A07513CAD && \
   gpg -a --export 07513CAD | apt-key add - && \
   apt-get update && \
-  apt-get install -y hadoop-2-5-0* hive hive2 spark-2-5-0* spark2-2-5-0* vim && \
+  apt-get install -y hadoop-2-5-0* hive-2-5-0* hive2-2-5-0* spark-2-5-0* spark2-2-5-0* vim && \
   apt-get clean
 ENV HADOOP_PREFIX /usr/hdp/2.5.0.0-1245/hadoop
 
