@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # Licensed to the Apache Software Foundation (ASF) under one
 # or more contributor license agreements.  See the NOTICE file
@@ -18,21 +18,23 @@
 # under the License.
 #
 
-IMAGE=dongjoon/${1:-hdp2.5}
+/usr/sbin/sshd
 
-LINK=""
-for i in {1..3}
+grep hdn /etc/hosts | awk '{print $1}' | sort | uniq > $HADOOP_PREFIX/etc/hadoop/slaves
+for host in `cat $HADOOP_PREFIX/etc/hadoop/slaves`
 do
-    HOST=hdn-001-0$i
-    LINK="$LINK --link=$HOST:$HOST"
-    docker run --name=$HOST -h $HOST -p 1001$i:22 -d $IMAGE /root/start.sh
+    scp /etc/hosts $host:/etc/hosts
+    scp $HADOOP_PREFIX/etc/hadoop/slaves $host:$HADOOP_PREFIX/etc/hadoop/slaves
 done
 
-HOST=hnn-001-01
-PORT="-p 5050:5050 -p 8088:8088 -p 10000:10000 -p 10010:22 -p 26002:26002 -p 26080:26080 -p 50070:50070"
-docker run --name=$HOST -h $HOST $PORT $LINK -it --rm -v $SPARK_HOME:/spark $IMAGE /root/init-nn.sh
+hdfs namenode -format
 
-for i in {1..3}
-do
-    docker rm -f hdn-001-0$i
-done
+hadoop-daemon.sh --script hdfs start namenode
+slaves.sh /usr/hdp/2.4.2.0-258/hadoop/sbin/hadoop-daemon.sh --script hdfs start datanode
+
+yarn-daemon.sh start resourcemanager
+slaves.sh /usr/hdp/2.4.2.0-258/hadoop-yarn/sbin/yarn-daemon.sh start nodemanager
+
+/usr/hdp/current/hive-client/bin/schematool -dbType derby -initSchema
+
+cd ~ && /bin/bash
