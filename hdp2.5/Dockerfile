@@ -44,7 +44,8 @@ COPY hdfs-site.xml $HADOOP_PREFIX/etc/hadoop/
 COPY mapred-site.xml $HADOOP_PREFIX/etc/hadoop/
 COPY yarn-site.xml $HADOOP_PREFIX/etc/hadoop/
 RUN sed -i.bak '/<configuration>/a\\n<property>\n<name>hive.metastore.schema.verification</name>\n<value>false</value>\n</property>\n' /etc/hive/conf/hive-site.xml
-RUN cp /etc/hive2/conf/hive-site.xml /etc/spark2/conf/
+RUN cp /etc/hive/conf/hive-site.xml /etc/spark/conf/
+RUN cp /etc/hive/conf/hive-site.xml /etc/spark2/conf/
 
 COPY init-nn.sh /root/
 
