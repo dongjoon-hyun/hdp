@@ -18,7 +18,8 @@
 # under the License.
 #
 
-IMAGE=dongjoon/${1:-hdp2.5}
+VERSION=${1%/}
+IMAGE=dongjoon/${VERSION:-hdp2.5}
 
 LINK=""
 for i in {1..3}
