@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,7 +13,8 @@
 # limitations under the License.
 
 ORG=dongjoon
-for DIR in `ls -d */`
+TARGET=${1:-`ls -d */`}
+for DIR in $TARGET
 do
     docker build -t $ORG/${DIR%%/} ${DIR%%/}
 done
