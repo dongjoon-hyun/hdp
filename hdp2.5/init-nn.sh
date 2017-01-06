@@ -24,10 +24,10 @@ done
 hdfs namenode -format
 
 hadoop-daemon.sh --script hdfs start namenode
-slaves.sh /usr/hdp/2.5.0.0-1245/hadoop/sbin/hadoop-daemon.sh --script hdfs start datanode
+slaves.sh /usr/hdp/2.5.3.0-37/hadoop/sbin/hadoop-daemon.sh --script hdfs start datanode
 
 yarn-daemon.sh start resourcemanager
-slaves.sh /usr/hdp/2.5.0.0-1245/hadoop-yarn/sbin/yarn-daemon.sh start nodemanager
+slaves.sh /usr/hdp/2.5.3.0-37/hadoop-yarn/sbin/yarn-daemon.sh start nodemanager
 
 /usr/hdp/current/hive-client/bin/schematool -dbType derby -initSchema
 

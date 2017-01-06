@@ -10,4 +10,4 @@ HDP 2.5
 * Hive 1.2.0
 * Hive 2.1.0
 * Spark 1.6.2
-* Spark 2.0.0
+* Spark 2.0.1
