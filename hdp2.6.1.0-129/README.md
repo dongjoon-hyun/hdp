@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE)
-[![](https://images.microbadger.com/badges/image/dongjoon/hdp2.6.svg)](https://microbadger.com/images/dongjoon/hdp2.6)
+[![](https://images.microbadger.com/badges/image/dongjoon/hdp2.6.1.0-129.svg)](https://microbadger.com/images/dongjoon/hdp2.6.1.0-129)
 
 HDP 2.6.1
 =========
