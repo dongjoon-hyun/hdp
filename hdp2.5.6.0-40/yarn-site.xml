@@ -75,4 +75,9 @@ limitations under the License.
         <name>yarn.nodemanager.resource.memory-mb</name>
         <value>87040</value>
     </property>
+
+    <property>
+        <name>yarn.nodemanager.vmem-check-enabled</name>
+        <value>false</value>
+    </property>
 </configuration>
