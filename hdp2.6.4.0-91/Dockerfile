@@ -10,7 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM dongjoon/ubuntu17.04-jdk8
+FROM dongjoon/ubuntu16.04-jdk8
 MAINTAINER Dongjoon Hyun <dongjoon@apache.org>
 
 # HDP 2.6.4
