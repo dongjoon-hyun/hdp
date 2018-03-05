@@ -15,7 +15,7 @@ MAINTAINER Dongjoon Hyun <dongjoon@apache.org>
 
 RUN \
   apt update && \
-  apt install -y openssh-server openjdk-8-jdk-headless && \
+  apt install -y openssh-server openjdk-8-jdk && \
   apt clean
 
 RUN \
