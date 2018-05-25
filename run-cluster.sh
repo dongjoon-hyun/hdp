@@ -13,7 +13,7 @@
 # limitations under the License.
 
 VERSION=${1%/}
-IMAGE=dongjoon/${VERSION:-hdp2.6.4.0-91}
+IMAGE=dongjoon/${VERSION:-hdp2.6.5.0-292}
 
 LINK=""
 for i in {1..3}
