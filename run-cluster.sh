@@ -25,10 +25,10 @@ done
 
 HOST=hnn-001-01
 if [[ "$IMAGE" =~ hdp3 ]]; then
-    PORT="-p 4040:4040 -p 5050:5050 -p 8088:8088 -p 9870:9870 -p 10000:10000 -p 10010:22 -p 26002:26002 -p 26080:26080"
+    PORT="-p 4040:4040 -p 5050:5050 -p 8088:8088 -p 9870:9870 -p 10000:10000 -p 26002:26002 -p 26080:26080"
     docker run --name=$HOST -h $HOST $PORT $LINK -it --rm -v $SPARK_HOME:/spark $IMAGE /root/init-service.sh
 else
-    PORT="-p 4040:4040 -p 5050:5050 -p 8088:8088 -p 10000:10000 -p 10010:22 -p 26002:26002 -p 26080:26080 -p 50070:50070"
+    PORT="-p 4040:4040 -p 5050:5050 -p 8088:8088 -p 10000:10000 -p 26002:26002 -p 26080:26080 -p 50070:50070"
     docker run --name=$HOST -h $HOST $PORT $LINK -it --rm -v $SPARK_HOME:/spark $IMAGE /root/init-nn.sh
 fi
 
